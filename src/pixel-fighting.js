@@ -19,7 +19,7 @@ export const PixelFighting = function () {
     var Old, New, Neigh, Ratio1;
     var Sum_1;
 
-    this.setup = function(canvasId, col1, col2) {
+    this.setup = function(canvasId, col1, col2, _size = 5) {
         color1 = col1;
         color2 = col2;
 
@@ -27,7 +27,7 @@ export const PixelFighting = function () {
         height = 500;
         canvas = document.getElementById(canvasId);
         ctx = canvas.getContext("2d");
-        size=5;
+        size=_size;
         step=500/size;
         Sum_1=0;
 
