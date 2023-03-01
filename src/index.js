@@ -1,1 +1,1 @@
-export {PixelFighting} from "./pixel-fighting.js";
+export * from "./pixel-fighting.js";

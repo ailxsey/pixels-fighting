@@ -7,9 +7,9 @@ const DEFAULT_COLORS = new Map([
     ['red', 'cyan'],
 ])
 
-export const PixelFighting = function () {
+export const EVENT_WIN = 'WIN';
 
-    const EVENT_WIN = 'WIN';
+export const PixelFighting = function () {
 
     var color1, color2;
     var canvas, ctx;
@@ -36,6 +36,11 @@ export const PixelFighting = function () {
         this.initialize();
         interval = setInterval(this.run,2);
 
+    }
+
+    this.restart = () => {
+        this.initialize();
+        interval = setInterval(this.run,2);
     }
 
     this.reset = (winner) => {

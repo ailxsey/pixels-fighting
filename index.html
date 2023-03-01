@@ -28,12 +28,27 @@ position: absolute;
 bottom: 10;
       }
       </style>
+
+ <script type="text/javascript">
+     function restartGame() {
+         setTimeout(() => console.log('Game will be restart...'), 0);
+         setTimeout(() => console.log('3'), 1000);
+         setTimeout(() => console.log('2'), 2000);
+         setTimeout(() => console.log('1'), 3000);
+         setTimeout(() => window.pf.restart(), 3000);
+     }
+ </script>
+
   <script type="module">
 
       // TODO: lister server on public folder. And build lib to public/dist
-      import {PixelFighting} from "./lib/index.js"; // TODO: refactor with builder lib
+      import {PixelFighting, EVENT_WIN} from "./lib/index.js"; // TODO: refactor with builder lib
 
-      window.pf = new PixelFighting('red', 'black');
+      const pf = new PixelFighting('red', 'black');
+
+      pf.subscribe(EVENT_WIN, restartGame)
+
+      window.pf = pf;
 
   </script>
  </head>
