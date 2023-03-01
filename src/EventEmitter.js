@@ -29,3 +29,5 @@ class EventEmitter {
         event && event.forEach(callback => callback.call(null, args));
     }
 }
+
+export default EventEmitter;

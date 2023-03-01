@@ -1,3 +1,4 @@
+import EventEmitter from "./EventEmitter.js";
 
 console.log(1111);
 
@@ -6,7 +7,7 @@ const DEFAULT_COLORS = new Map([
     ['red', 'cyan'],
 ])
 
-const PixelFighting = function () {
+export const PixelFighting = function () {
 
     const EVENT_WIN = 'WIN';
 
@@ -15,6 +16,7 @@ const PixelFighting = function () {
     var interval;
     var width, height;
     var size,step;
+    var Old, New, Neigh, Ratio1;
     var Sum_1;
 
     this.setup = function(canvasId, col1, col2) {
@@ -50,6 +52,7 @@ const PixelFighting = function () {
         Neigh = new Array (size);
         Ratio1 = new Array (size);
 
+        var i, j;
         for (i = 0; i < Old . length; ++ i){
             Old [i] = new Array (size);
             New [i] = new Array (size);
@@ -90,6 +93,7 @@ const PixelFighting = function () {
 
 
     this.ratio = function() {
+        var i, j;
         for (i = 0; i < size; ++ i){
             for (j = 0; j < size; ++ j){
                 Ratio1[i][j]=0;
@@ -122,8 +126,7 @@ const PixelFighting = function () {
 
 
     this.draw = function () {
-
-
+        var i, j;
         for (i = 0; i < size; ++ i){
             for (j = 0; j < size; ++ j){
                 ctx.fillStyle = color1;
@@ -134,10 +137,10 @@ const PixelFighting = function () {
     }
 
     this.calculate = function() {
-
+        var i, j;
         for (i = 0; i < size; ++ i){
             for (j = 0; j < size; ++ j){
-                help=Math.random();
+                var help=Math.random();
 
                 if ((Ratio1[i][j])>help){
                     Old[i][j]=1;

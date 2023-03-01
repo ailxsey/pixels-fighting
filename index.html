@@ -8,8 +8,6 @@
  	<meta property="og:type" content="website">
  	<meta property="og:title" content="PIXELS FIGHTING">
  	<meta property="og:url" content="http://www.pixelsfighting.com">
-    <script src="js/EventEmitter.js"></script>
-    <script src="js/pixel-fighting.js"></script>
  	<script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -30,9 +28,12 @@ position: absolute;
 bottom: 10;
       }
       </style>
-  <script type="application/javascript">
+  <script type="module">
 
-      const pf = new PixelFighting('red', 'black');
+      // TODO: lister server on public folder. And build lib to public/dist
+      import {PixelFighting} from "./lib/index.js"; // TODO: refactor with builder lib
+
+      window.pf = new PixelFighting('red', 'black');
 
   </script>
  </head>

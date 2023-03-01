@@ -1,0 +1,32 @@
+{
+  "name": "pixels-fighting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./public/dist/pixel-fighting.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "npx http-server",
+    "build-lib": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ailxsey/pixels-fighting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ailxsey/pixels-fighting/issues"
+  },
+  "homepage": "https://github.com/ailxsey/pixels-fighting#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
