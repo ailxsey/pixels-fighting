@@ -1,6 +1,6 @@
 import EventEmitter from "./EventEmitter.js";
 
-console.log(1111);
+console.log('pixel-fighting included.');
 
 const DEFAULT_COLORS = new Map([
     ['white', 'black'],
@@ -18,6 +18,7 @@ export const PixelFighting = function () {
     var size,step;
     var Old, New, Neigh, Ratio1;
     var Sum_1;
+    var isLog = false;
 
     this.setup = function(canvasId, col1, col2, _size = 5) {
         color1 = col1;
@@ -38,6 +39,14 @@ export const PixelFighting = function () {
 
     }
 
+    this.enableLogs = () => {
+        isLog = true;
+    }
+
+    this.disableLogs = () => {
+        isLog = false;
+    }
+
     this.restart = () => {
         this.initialize();
         interval = setInterval(this.run,2);
@@ -45,7 +54,7 @@ export const PixelFighting = function () {
 
     this.reset = (winner) => {
         const color = winner ? color2 : color1;
-        console.log(`%cWin is ${color}`, `color: ${color}`)
+        isLog && console.log(`%cWin is ${color}`, `color: ${color}`)
         clearInterval(interval);
     }
 
@@ -120,9 +129,9 @@ export const PixelFighting = function () {
                 Ratio1[i][j]=Ratio1[i][j]/Neigh[i][j];
             }
         }
-        console.log(Neigh[1][1]);
-        console.log(Ratio1[1][1]);
-        console.log(Sum_1);
+        isLog && console.log(Neigh[1][1]);
+        isLog && console.log(Ratio1[1][1]);
+        isLog && console.log(Sum_1);
 
     }
 
@@ -167,7 +176,7 @@ export const PixelFighting = function () {
     }
 
     this.checkWin = () => {
-        console.log('SUM', Sum_1);
+        isLog && console.log('SUM', Sum_1);
         if (Sum_1 === 0 || Sum_1 === 1) {
             this.emit(EVENT_WIN, Sum_1)
         }

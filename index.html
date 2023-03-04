@@ -44,7 +44,7 @@ bottom: 10;
       // TODO: lister server on public folder. And build lib to public/dist
       import {PixelFighting, EVENT_WIN} from "./lib/index.js"; // TODO: refactor with builder lib
 
-      const pf = new PixelFighting('red', 'black');
+      const pf = new PixelFighting();
 
       pf.subscribe(EVENT_WIN, restartGame)
 
@@ -59,7 +59,7 @@ body
 }
 </style>
 
- <body onload="pf.setup('scrawl', 'red', 'black')">
+ <body onload="pf.setup('scrawl', 'red', 'black', 125)">
 
 <center>
 <br> 
